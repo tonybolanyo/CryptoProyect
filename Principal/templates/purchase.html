@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+
+{%block head_title%}
+  COMPRA DE CRIPTOS - {{super()}}
+{%endblock head_title%}  
+
+{% block page_title%}
+  COMPRA DE CRIPTOS
+{% endblock page_title%}
+
+
+{%block contenido%}
+   {{super()}}
+<form method="POST" action="/purchase/">
+  {{ form.csrf_token }}
+  
+  
+  <div class="purchase-formulario">
+    {{form.lista_from.label}}
+    {{form.lista_from}}
+  </div>
+  
+  <div class="purchase-formulario">
+    {{form.lista_to.label}}
+    {{form.lista_to}}
+  </div>
+  <!--<Q-resultado></Q-resultado> -->
+  <div class="purchase-formulario">
+    {{form.cantidad.label}}
+    {{form.cantidad}}
+  </div>
+  <div class="accion1">
+    {{form.submit_calcular}}
+  </div>
+  <div class="accion2">
+    {{form.submit_aceptar}}
+  </div>
+</form>
+
+{%endblock contenido%}
+
