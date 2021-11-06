@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+
+{%block head_title%}
+ MOVIMIENTOS
+{%endblock head_title%}
+
+{% block page_title %}
+  MOVIMIENTOS
+{%endblock page_title%}
+ 
+
+{% block contenido %}
+   {{ super()}}
+
+  <table  role="grid">     
+         <tr>
+           <th class="tit-table">Fecha</th>
+           <th class="tit-table">Hora</th>
+           <th class="tit-table">From</th>
+           <th class="tit-table">Q</th>
+           <th class="tit-table">To</th>
+           <th class="tit-table" >Q</th>
+           <th class="tit-table">P.U</th>
+         </tr>
+         {%if mov %}
+         {% for mov in movs%} 
+          <tr>
+           <td>{{mov.date}}</td>
+           <td>{{mov.time}}</td>
+           <td>{{mov.from_currency}}</td>
+           {%if mov.from_quantity >=1%}
+           <td>{{"{:,.2f}".format(mov.from_quantity)}}</td>
+           {%else%} 
+           <td>{{"{:.2f}".format(mov.from_quantity)}}</td>
+           {%endif%}
+           <td>{{mov.to_currency}}</td>
+           <td>{{"{:,.2f}".format(mov.to_quantity)}}</td>
+           {%if mov.from_quantity/mov.to_quantity <=1%}
+           <td>{{"{:,.2f}".format(mov.from_quantity/mov.to_quantity)}}</td>
+           {%else%}
+          <td>{{"{:,.2f}".format(mov.from_quantity/mov.to_quantity)}}</td>
+          {%endif%}               
+        </tr>
+       {% if mov.errores %}
+        <tr>
+          <td colspan="7" class="errores">
+             ERRORES:
+             {%for error in mov.errores%}
+                {{error}}
+            {%endfor%}
+          </td>    
+        </tr>
+        {%endif%}
+      {%endfor%}
+     {%else%}
+       <tr>
+          <td colspan="7"class="lista-vacia">
+          SIN MOVIMIENTOS
+         </td> 
+       </tr>
+    {%endif%}
+   </table>  
+   <a href="/purchase/status" role="button" class="botton-status">Status</a> 
+   <a href= "/purchase" role="button" class="botton-compra" >Compra</a>
+{%endblock contenido%}
+    

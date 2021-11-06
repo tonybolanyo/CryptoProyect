@@ -1,0 +1,92 @@
+
+body{
+    background-color: antiquewhite;
+}
+
+
+.header{
+    background-color:crimson;
+    color: azure;
+    height: 80px;
+    line-height: 60px;
+    padding: 20px;
+    font-size: 20px;
+    min-width: 20px;
+}
+
+nav {
+    margin-top: 10px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+.main{
+   max-width: 900px;
+   margin: auto;
+   padding: 0 10px;
+  
+   
+}
+
+
+
+.footer{
+    margin-top: 400px;
+    background-color:crimson;
+    color: azure;
+    padding: 20px;
+    position: static;
+    bottom: 0;
+    font-size: 15px;
+    
+}
+
+table{
+    width: 100%;
+    border: solid 0.5px lightslategray;
+}
+
+
+.tit-table{
+    border-bottom: solid 0.5px lightslategray;
+    background-color: crimson;
+    color: antiquewhite;
+}
+h1{
+    text-align: center;
+    margin-top: 40px; 
+    font-size: 30px;
+    
+}
+
+.errores{
+    color: red;
+    padding-left: 5rem;
+    top:-5px;
+    font-size: small;
+    position:relative
+    
+
+}
+.lista-vacia{
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+a:link, a:visited{
+    color:crimson
+   
+}
+a:hover{
+    color: white;
+}
+
+
+a:focus{
+    color:black
+}
+
+.botton-status{
+   color: antiquewhite;
+}
