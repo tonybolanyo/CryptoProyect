@@ -28,17 +28,14 @@
            <td>{{mov.date}}</td>
            <td>{{mov.time}}</td>
            <td>{{mov.from_currency}}</td>
-           <td class="text-right">
-             {%if mov.from_quantity >=1%}
-             {{"{:,.2f}".format(mov.from_quantity)}}
+            {%if mov.from_quantity >=1%}
+            <td>{{"{:,.2f}".format(mov.from_quantity)}}</td>
              {%else%} 
              {{"{:.2f}".format(mov.from_quantity)}}
              {%endif%}
-           </td>
            <td>{{mov.to_currency}}</td>
-           <td class="text-right">{{"{:,.2f}".format(mov.to_quantity)}}</td>
-           <td class="text-right">
-             {%if mov.from_quantity/mov.to_quantity <=1%}
+           <td>{{"{:,.2f}".format(mov.to.cuantity)}}</td>
+             {%if mov.from_quantity/mov.to_quantity >=1%}
              {{"{:,.2f}".format(mov.from_quantity/mov.to_quantity)}}
              {%else%}
              {{"{:,.2f}".format(mov.from_quantity/mov.to_quantity)}}

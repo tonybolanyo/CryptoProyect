@@ -36,7 +36,7 @@ def purchase():
        
         P_U=cantidadAcambiar/cantidadCambiada
         
-        date = datetime.now().strftime('%y-%m-%d')
+        date = datetime.now().strftime('%d-%m-%y')
         time = datetime.now().strftime('%H:%M:%S')
         
         
