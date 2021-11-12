@@ -1,37 +1,47 @@
 
 body{
-    background-color: antiquewhite;
+    background-color:floralwhite;
 }
 
 
 .header{
-    background-color:crimson;
+    background-color:cadetblue;
     color: azure;
     height: 80px;
     line-height: 60px;
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 30px;
     min-width: 20px;
 }
 
 nav {
-    margin-top: 10px;
+    background-color: darkgray;
+    margin-top: 0px;
     font-size: 15px;
     padding-left: 20px;
+    height: 20px;
+    line-height: 20px;
 }
+
+
 .main{
-   max-width: 900px;
+   max-width: 1500px;
    margin: auto;
    padding: 0 10px;
   
    
+}
+.table{
+    width: 100%;
+    padding: 0 10px;
+
 }
 
 
 
 .footer{
     margin-top: 400px;
-    background-color:crimson;
+    background-color :cadetblue;
     color: azure;
     padding: 20px;
     position: static;
@@ -40,16 +50,13 @@ nav {
     
 }
 
-.table-movimientos{
-    width: 100%;
-    border: solid 0.5px lightslategray;
-}
+
 
 
 .tit-table{
     border-bottom: solid 0.5px lightslategray;
-    background-color: crimson;
-    color: antiquewhite;
+    
+    color: black;
     text-align: center;
 }
 
@@ -59,6 +66,7 @@ nav {
 
 .table-movimientos td.text-right{
     text-align: right;
+    display: block;
 }
 h1{
     text-align: center;
@@ -84,8 +92,7 @@ h1{
 
 
 a:link, a:visited{
-    color:crimson
-   
+    color:floralwhite  
 }
 a:hover{
     color: white;
@@ -96,11 +103,55 @@ a:focus{
     color:black
 }
 
-.botton-status{
-   color: antiquewhite;
+
 
 }
 .botton-compra{
-    right: 400px;
+    background-color:lightslategray;
+}
+.submit_calcular{
+    width: 100px;
+    
 }
 
+.submit_aceptar{
+    width: 100px;
+
+}
+
+.lista-from{
+    padding: 10px;
+    position: relative;
+    left: 390px;
+    bottom:15px;
+    display: block;
+    
+}
+.selec1{
+    background-color: darkgray;
+    width: 400px;
+
+}
+.selec2 {
+    background-color:darkgray;
+    width: 400px;
+    right: 200px;
+}
+
+.cantidadfrom{
+    background-color: darkgrey;
+   
+}
+.cantidad{
+    width: 400px;
+}
+
+.selectores lista-to{
+    display:inline-block;
+
+   
+}
+
+.P_U{
+  position: relative;  
+}

@@ -1,17 +1,24 @@
 
 from flask_wtf import FlaskForm
 from wtforms import SelectField
-from wtforms import HiddenField, SubmitField,DecimalField
+from wtforms import HiddenField, SubmitField,DecimalField,FloatField
+from wtforms.fields.core import IntegerField
 from wtforms.validators import DataRequired
 
 
 class PurchaseForm(FlaskForm):
-
+    cryptomonedas=[("EUR","Euro"),("BTC","Bitcoin"),("ETH","Ether"),("USDT","Tether"),("ADA","Cardano"),
+                   ("SOL","Solana"),("XRP","Ripple"), ("DOT","Polkadot"),("DOGE","Dogecoin"),("SHIB","Shibs_Inu")]
+    
     id =HiddenField()
-    lista_from = SelectField( "From", choices = [("EUR","Euro"),("BTC","Bitcoin"),("ETH","Ether"),("USDT","Tether"),("ADA","Cardano"),("SOL","Solana"),("XRP","Ripple"), ("DOT","Polkadot"),("DOGE","Dogecoin"),("SHIB","Shibs_Inu")])
-    lista_to = SelectField("To", choices = [("EUR","Euro"),("BTC","Bitcoin"),("ETH","Ether"),("USDT","Tether"),("ADA","Cardano"),("SOL","Solana"),("XRP","Ripple"), ("DOT","Polkadot"),("DOGE","Dogecoin"),("SHIB","Shibs_Inu")] )                                                                                               
-    cantidad= DecimalField ("Q", validators=[DataRequired(message="Debes indicar una cantidad")],places=2)
-       
-   # FloatField ( argumentos de campo predeterminados )
+    from_currency = SelectField( "From:",
+                             validators=[DataRequired(message="Seleccione la moneda a cambiar")],choices =cryptomonedas )
+    from_quantity= FloatField ("Q:", validators=[DataRequired(message="Debes indicar una cantidad")])
+    to_currency= SelectField("To:",
+                             validators=[DataRequired(message="Seleccione la moneda a devolver")],choices = cryptomonedas )                                                                                               
+    to_quantity=FloatField("Q:" ) 
+     
+    P_U=FloatField("P.U.:")
+   
     submit_calcular=SubmitField("Calcular")
     submit_aceptar= SubmitField("Enviar")

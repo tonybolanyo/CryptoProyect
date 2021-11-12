@@ -12,7 +12,7 @@
 {% block contenido %}
    {{ super()}}
 
-  <table  role="grid">     
+  <table role="grid" class="table-movimientos" >     
          <tr>
            <th class="tit-table">Fecha</th>
            <th class="tit-table">Hora</th>
@@ -21,7 +21,7 @@
            <th class="tit-table">To</th>
            <th class="tit-table" >Q</th>
            <th class="tit-table">P.U</th>
-           {%if mov%}
+        {%if mov%}
          </tr>
          {% for mov in movs%} 
           <tr>
@@ -62,7 +62,7 @@
           SIN MOVIMIENTOS
          </td> 
        </tr>
-       {%endif%}
+      {%endif%}
    </table>  
    <a href="/purchase/status" role="button" class="botton-status">Status</a> 
    <a href= "/purchase" role="button" class="botton-compra" >Compra</a>

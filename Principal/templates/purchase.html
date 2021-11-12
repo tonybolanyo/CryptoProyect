@@ -12,29 +12,42 @@
 {%block contenido%}
    {{super()}}
  
-<form method="POST" action="/purchase/">
-    {{ form.csrf_token }}
+    <form method="POST" action="/purchase/">
+     {{ form.csrf_token }}   
+     {{form.id}}
     
-    <div class="list-from">
-      <label for='lista_from'>From:</label>
-      {{form.lista_from(class="selec1")}}
-    </div>
-    <div class="list-to">
-      <label for='lista_to'>To:</label>
-      {{form.lista_to(class="selec2")}}
-    </div>
-  
-    <label for='cantidad'>Q:</label>
-    {{form.cantidad(class="quanfrom", placeholder="Cantidad") }}
-
-    {{form.submit_calcular(class="boton_calcular")}}
-
-    <label for="Q"class="quanto">Q:</label>
+     <div class="lista_from">
+      {{form.from_currency.label}}
+      {{form.from_currency(class="selec1")}} 
+     </div>
+    
+     <div class="lista_to">
+      {{form.to_currency.label}}
+      {{form.to_currency(class="selec2")}}
+      </div>
+    
+      <div class="cantidad">
+      {{form.from_quantity.label}}
+      {{form.from_quantity (class="cantidadfrom", placeholder="Cantidad") }}
+      </div>
+      
+      <div class="submit_calcular">
+      {{form.submit_calcular}}
+      </div>
+     
    
-    <label for="PU">P.U.:</label>
+      {{form.to_quantity.label}}
+      {{cantidadCambiada}}
+    
+     
+      {{form.P_U.label}}
+       {{P_U}}
+     
    
 
-    {{ form.submit_aceptar(class="boton_aceptar")}}
-
+      <div class="submit_aceptar">
+      {{form.submit_aceptar}}
+      </div>
+      
 </form>
-{% endblock %}
+{% endblock contenido%}
