@@ -1,9 +1,5 @@
-import json
 import sqlite3
 import requests
-from . import app
-from flask import jsonify
-import requests 
 
 
 cryptomonedas=("EUR","BTC","ETH","USDT","ADA","SOL","XRP","DOT","DOGE","SHIB")
@@ -16,33 +12,33 @@ class CryptoCambio():
     def __init__(self, crypfrom, crypto):
         self.crypfrom = crypfrom
         self.crypto = crypto
-        
-  
+
+
 
     def exchange(self):
          headers = {
-            
+
             "X-CoinAPI-Key": API_KEY
-            
+
          }
-         
+
          url = URL.format(orig=self.crypfrom, dest=self.crypto)
          response=requests.get(url,headers=headers)
-          
+
          cambio = response.json()['rate']
          return cambio
-         
-             
-         
-        
-         
+
+
+
+
+
 class APIError(Exception):
     pass
 
 class DBManager:
     def __init__(self, ruta,):
         self.ruta = ruta
-        
+
     def ejecutarConParametros(self, consulta, params):
         conexion=sqlite3.connect(self.ruta)
         cursor= conexion.cursor()
@@ -55,8 +51,8 @@ class DBManager:
             print(error)
             conexion.rollback()
             conexion.close()
-        return resultado        
-      
+        return resultado
+
 
     def querySQL(self, consulta):
         conexion = sqlite3.connect(self.ruta)
@@ -85,7 +81,7 @@ class DBManager:
         conexion = sqlite3.connect(self.ruta)
         cursor = conexion.cursor()
         cursor.execute(consulta)
-        
+
         saldoAcumulado = []
         for moneda in cryptomonedas:
             saldoMonedas = self.querySQL('''
@@ -93,14 +89,13 @@ class DBManager:
                                 AS(SELECT SUM(to_quantity) AS saldo
                                 FROM movements
                                 WHERE to_currency LIKE "%{}%"
-                                UNION 
-                                SELECT -SUM(from_quantity) AS saldo 
+                                UNION
+                                SELECT -SUM(from_quantity) AS saldo
                                 FROM movements
                                 WHERE from_currency LIKE "%{}%")
                                 SELECT SUM(saldo)
                                 FROM SALDO
                                 '''.format(moneda,moneda))
-            
-            saldoAcumulado.append(saldoMonedas)  
-        return saldoAcumulado                       
-           
+
+            saldoAcumulado.append(saldoMonedas)
+        return saldoAcumulado
